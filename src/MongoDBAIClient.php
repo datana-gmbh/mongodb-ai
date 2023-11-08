@@ -53,13 +53,8 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
 
         $systemPrompts = [
             'Create a MongoDB aggregation pipeline and answer only with the pipeline itself, no explanations.',
-            'It must be in a PHP array!',
-            'No starting variable, just the pipeline itself.',
-            'No ending ;',
-            'I want to use your result directly in PHP, please also remove the ```php and ```.',
+            'It must be in JSON format!',
             'Remove all linebreaks.',
-            'No JSON format!'
-
         ];
 
         $messages = [];
@@ -91,7 +86,9 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
 
         $response = $this->openAI->chat()->create($parameters);
 
-        dd($response->choices[0]->message->content);
+        $pipeline = str_replace(PHP_EOL, '', $response->choices[0]->message->content);
+
+        dd($pipeline);
 
         return $collection->aggregate($pipeline, $options);
     }
