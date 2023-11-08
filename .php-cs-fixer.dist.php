@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Ergebnis\PhpCsFixer;
 
 $header = <<<'HEADER'
-This file is part of MongoDB AI.
+This file is part of datana-gmbh/mongodb-ai package.
 
 (c) Datana GmbH <info@datana.rocks>
 

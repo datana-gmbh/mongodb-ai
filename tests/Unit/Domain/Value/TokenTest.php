@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * This file is part of MongoDB AI.
+ * This file is part of datana-gmbh/mongodb-ai package.
  *
  * (c) Datana GmbH <info@datana.rocks>
  *
