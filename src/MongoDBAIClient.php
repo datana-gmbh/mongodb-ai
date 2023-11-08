@@ -56,8 +56,10 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
             'It must be in a PHP array!',
             'No starting variable, just the pipeline itself.',
             'No ending ;',
-            'I want to use your result directly in PHP, please also remove the ```php and ```',
-            'Remove all linebreaks',
+            'I want to use your result directly in PHP, please also remove the ```php and ```.',
+            'Remove all linebreaks.',
+            'No JSON format!'
+
         ];
 
         $messages = [];
