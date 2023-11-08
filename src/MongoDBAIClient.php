@@ -53,7 +53,7 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
 
         $systemPrompts = [
             'Create a MongoDB aggregation pipeline and answer only with the pipeline itself, no explanations.',
-            'It must be in JSON format!',
+            'The pipeline must be in JSON format!',
             'Remove all linebreaks.',
         ];
 
@@ -79,7 +79,9 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
 
         $parameters = [
             'model' => 'gpt-4-1106-preview',
-            'type' => 'json_object',
+            'response_format' => [
+                'type' => 'json_object',
+            ],
             'temperature' => 0.1,
             'messages' => $messages,
         ];
