@@ -19,7 +19,6 @@ use OskarStark\Value\TrimmedNonEmptyString;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Webmozart\Assert\Assert;
-use function Symfony\Component\String\u;
 
 /**
  * @author Oskar Stark <oskarstark@googlemail.com>
@@ -73,6 +72,7 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
                 'role' => 'system',
                 'content' => 'Here are some examples of the documents in the collection:',
             ];
+
             foreach ($examples as $example) {
                 $messages[] = ['role' => 'user', 'content' => $example];
             }
@@ -92,14 +92,10 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
 
         $response = $this->openAI->chat()->create($parameters);
 
-        $pipeline = u($response->choices[0]->message->content)
-            ->replace(PHP_EOL, '')
-            ->toString();
+        $pipelineJson = json_encode(json_decode($response->choices[0]->message->content, true, 512, \JSON_THROW_ON_ERROR));
 
-        $pipeline = json_decode($pipeline, true, 512, \JSON_THROW_ON_ERROR);
+        $pipelineArray = json_decode($pipelineJson, true, 512, \JSON_THROW_ON_ERROR);
 
-        dd($pipeline);
-
-        return $collection->aggregate($pipeline, $options);
+        return $collection->aggregate($pipelineArray, $options);
     }
 }
