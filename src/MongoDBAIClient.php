@@ -83,6 +83,7 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
             'response_format' => [
                 'type' => 'json_object',
             ],
+            'n' => 1,
             'temperature' => 0.1,
             'messages' => $messages,
         ];
