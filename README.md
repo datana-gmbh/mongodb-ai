@@ -13,10 +13,11 @@ composer require datana-gmbh/mongodb-ai
 ```
 
 ### Setup
-```php
-use Datana\Datapool\Api\DatapoolClient;
 
-$client = new DatapoolClient(
+```php
+use Datana\Datapool\Api\MongoDBAI;
+
+$client = new MongoDBAI(
     baseUri: 'https://api.datapool...',
     username: 'my-username',
     password: '******',
@@ -35,9 +36,9 @@ In your code you should type-hint to `Datana\Datapool\Api\AktenApiInterface`
 
 ```php
 use Datana\Datapool\Api\AktenApi;
-use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\MongoDBAI;
 
-$client = new DatapoolClient(/* ... */);
+$client = new MongoDBAI(/* ... */);
 
 $aktenApi = new AktenApi($client);
 $response = $aktenApi->search('MySearchTerm');
@@ -47,10 +48,10 @@ $response = $aktenApi->search('MySearchTerm');
 
 ```php
 use Datana\Datapool\Api\AktenApi;
-use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\MongoDBAI;
 use Datana\Datapool\Api\Domain\Value\DatapoolId;
 
-$client = new DatapoolClient(/* ... */);
+$client = new MongoDBAI(/* ... */);
 
 $aktenApi = new AktenApi($client);
 $response = $aktenApi->getByAktenzeichen('1abcde-1234-5678-Mustermann');
@@ -67,10 +68,10 @@ $datapoolId = DatapoolId::fromInt($akte['id']);
 
 ```php
 use Datana\Datapool\Api\AktenApi;
-use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\MongoDBAI;
 use Datana\Datapool\Api\Domain\Value\DatapoolId;
 
-$client = new DatapoolClient(/* ... */);
+$client = new MongoDBAI(/* ... */);
 
 $aktenApi = new AktenApi($client);
 $response = $aktenApi->getByFahrzeugIdentifikationsnummer('ABC1234ABCD123456');
@@ -87,10 +88,10 @@ $datapoolId = DatapoolId::fromInt($akte['id']);
 
 ```php
 use Datana\Datapool\Api\AktenApi;
-use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\MongoDBAI;
 use Datana\Datapool\Api\Domain\Value\DatapoolId;
 
-$client = new DatapoolClient(/* ... */);
+$client = new MongoDBAI(/* ... */);
 
 $aktenApi = new AktenApi($client);
 
@@ -113,10 +114,10 @@ $result = $aktenApi->getOneByAktenzeichen('1abcde-1234-5678-Mustermann');
 
 ```php
 use Datana\Datapool\Api\AktenApi;
-use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\MongoDBAI;
 use Datana\Datapool\Api\Domain\Value\DatapoolId;
 
-$client = new DatapoolClient(/* ... */);
+$client = new MongoDBAI(/* ... */);
 
 $aktenApi = new AktenApi($client);
 
@@ -129,10 +130,10 @@ $aktenApi->getById($id);
 
 ```php
 use Datana\Datapool\Api\AktenApi;
-use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\MongoDBAI;
 use Datana\Datapool\Api\Domain\Value\DatapoolId;
 
-$client = new DatapoolClient(/* ... */);
+$client = new MongoDBAI(/* ... */);
 
 $aktenApi = new AktenApi($client);
 
@@ -162,10 +163,10 @@ $result = $aktenApi->getKtAktenInfo($id);
 
 ```php
 use Datana\Datapool\Api\AktenApi;
-use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\MongoDBAI;
 use Datana\Datapool\Api\Domain\Value\DatapoolId;
 
-$client = new DatapoolClient(/* ... */);
+$client = new MongoDBAI(/* ... */);
 
 $aktenApi = new AktenApi($client);
 
@@ -191,10 +192,10 @@ $response = $aktenApi->getETerminInfo($id);
 
 ```php
 use Datana\Datapool\Api\AktenApi;
-use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\MongoDBAI;
 use Datana\Datapool\Api\Domain\Value\DatapoolId;
 
-$client = new DatapoolClient(/* ... */);
+$client = new MongoDBAI(/* ... */);
 
 $aktenApi = new AktenApi($client);
 
@@ -220,10 +221,10 @@ $response = $aktenApi->getETerminInfo($id);
 
 ```php
 use Datana\Datapool\Api\AktenApi;
-use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\MongoDBAI;
 use Datana\Datapool\Api\Domain\Value\DatapoolId;
 
-$client = new DatapoolClient(/* ... */);
+$client = new MongoDBAI(/* ... */);
 
 $aktenApi = new AktenApi($client);
 
@@ -240,9 +241,9 @@ In your code you should type-hint to `Datana\Datapool\Api\AktenzeichenApiInterfa
 
 ```php
 use Datana\Datapool\Api\AktenzeichenApi;
-use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\MongoDBAI;
 
-$client = new DatapoolClient(/* ... */);
+$client = new MongoDBAI(/* ... */);
 
 $aktenzeichenApi = new AktenzeichenApi($client);
 $aktenzeichenApi->new(); // returns sth like "6GU5DCB"
@@ -256,9 +257,9 @@ In your code you should type-hint to `Datana\Datapool\Api\AktenEventLogApiInterf
 
 ```php
 use Datana\Datapool\Api\AktenEventLogApi;
-use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\MongoDBAI;
 
-$client = new DatapoolClient(/* ... */);
+$client = new MongoDBAI(/* ... */);
 
 $aktenEventLog = new AktenEventLogApi($client);
 $aktenEventLog->log(
@@ -277,10 +278,10 @@ In your code you should type-hint to `Datana\Datapool\Api\SystemEventLogApiInter
 ### Create a new log
 
 ```php
-use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\MongoDBAI;
 use Datana\Datapool\Api\SystemEventLogApi;
 
-$client = new DatapoolClient(/* ... */);
+$client = new MongoDBAI(/* ... */);
 
 $systemEventLog = new SystemEventLogApi($client);
 $systemEventLog->log(
@@ -303,9 +304,9 @@ In your code you should type-hint to `Datana\Datapool\Api\ChatProtocolApiInterfa
 
 ```php
 use Datana\Datapool\Api\ChatProtocolApi;
-use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\MongoDBAI;
 
-$client = new DatapoolClient(/* ... */);
+$client = new MongoDBAI(/* ... */);
 
 $chatProtocol = new ChatProtocolApi($client);
 $chatProtocol->log(
@@ -323,10 +324,10 @@ In your code you should type-hint to `Datana\Datapool\Api\KnowledgeToolsApiInter
 ### Get Fieldvalue by Instance and OID
 
 ```php
-use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\MongoDBAI;
 use Datana\Datapool\Api\KnowledgeToolsApi;
 
-$client = new DatapoolClient(/* ... */);
+$client = new MongoDBAI(/* ... */);
 
 $api = new KnowledgeToolsApi($client);
 $api->getFieldvalueByInstanceAndOid(
@@ -339,10 +340,10 @@ $api->getFieldvalueByInstanceAndOid(
 ### Get Fieldvalue by Aktenzeichen
 
 ```php
-use Datana\Datapool\Api\DatapoolClient;
+use Datana\Datapool\Api\MongoDBAI;
 use Datana\Datapool\Api\KnowledgeToolsApi;
 
-$client = new DatapoolClient(/* ... */);
+$client = new MongoDBAI(/* ... */);
 
 $api = new KnowledgeToolsApi($client);
 $api->getFieldvalueByAktenzeichen(
