@@ -26,7 +26,7 @@ use Webmozart\Assert\Assert;
 final readonly class MongoDBAIClient implements MongoDBAIClientInterface
 {
     public function __construct(
-        private MongoDB $client,
+        private MongoDB $mongodb,
         private string $database,
         private string $collection,
         private OpenAI $openAI,
@@ -48,7 +48,7 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
             $prompts = $prompt;
         }
 
-        $database = $this->client->selectDatabase($this->database);
+        $database = $this->mongodb->selectDatabase($this->database);
         $collection = $database->selectCollection($this->collection);
 
         $messages = [
