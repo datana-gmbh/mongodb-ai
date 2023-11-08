@@ -71,7 +71,7 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
 
         $response = $this->openAI->chat()->create($parameters);
 
-        dd($response->choices());
+        dd($response);
 
         return $collection->aggregate($pipeline, $options);
     }
