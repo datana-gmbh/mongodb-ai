@@ -42,7 +42,7 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
         $prompts = [];
 
         if (\is_string($prompt)) {
-            $prompt = TrimmedNonEmptyString::fromString($prompt, '$prompt must be a non empty string.');
+            $prompts[] = TrimmedNonEmptyString::fromString($prompt, '$prompt must be a non empty string.')->toString();
         } else {
             Assert::notEmpty($prompt, '$prompt must be a an array of non empty strings.');
             $prompts = $prompt;
