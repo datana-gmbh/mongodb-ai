@@ -14,9 +14,11 @@ declare(strict_types=1);
 namespace Datana\MongoDB\AI;
 
 use MongoDB\Client as MongoDB;
+use OpenAI\Client as OpenAI;
 use OskarStark\Value\TrimmedNonEmptyString;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
+use Webmozart\Assert\Assert;
 
 /**
  * @author Oskar Stark <oskarstark@googlemail.com>
@@ -24,22 +26,44 @@ use Psr\Log\NullLogger;
 final readonly class MongoDBAIClient implements MongoDBAIClientInterface
 {
     public function __construct(
-        private readonly MongoDB $client,
-        private readonly string $database,
-        private readonly string $collection,
-        private LoggerInterface $logger = new NullLogger()
+        private MongoDB $client,
+        private string $database,
+        private string $collection,
+        private OpenAI $openAI,
+        private LoggerInterface $logger = new NullLogger(),
     ) {
     }
 
-    public function AIggregate(string $prompt): array
+    /**
+     * {@inheritDoc}
+     */
+    public function AIggregate(array|string $prompt, array $examples = [], array $options = []): \Traversable
     {
-        $prompt = TrimmedNonEmptyString::fromString($prompt, '$prompt must be a non empty string.');
+        $prompts = [];
+
+        if (\is_string($prompt)) {
+            $prompt = TrimmedNonEmptyString::fromString($prompt, '$prompt must be a non empty string.');
+        } else {
+            Assert::notEmpty($prompt, '$prompt must be a an array of non empty strings.');
+            $prompts = $prompt;
+        }
 
         $database = $this->client->selectDatabase($this->database);
         $collection = $database->selectCollection($this->collection);
 
-        
+        $messages = [
+            ['role' => 'system', 'content' => 'You are a helpful assistant.'],
+        ];
 
-        return $collection->aggregate()
+        foreach ($prompts as $prompt) {
+            $messages[] = ['role' => 'user', 'content' => $prompt];
+        }
+
+        $this->openAI->chat()->create([
+            'model' => 'gpt-4-1106-preview',
+            'messages' => $messages,
+        ]);
+
+        return $collection->aggregate($pipeline, $options);
     }
 }

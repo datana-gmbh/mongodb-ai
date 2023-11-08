@@ -18,5 +18,10 @@ namespace Datana\MongoDB\AI;
  */
 interface MongoDBAIClientInterface
 {
-    public function AIggregate(string $database, string $collection, string $prompt): array;
+    /**
+     * @param array|string $prompt   the prompt(s) to generate a MongoDB aggregation pipeline from
+     * @param array        $examples the examples of documents to give the model more context
+     * @param array        $options  the options for the aggregation pipeline
+     */
+    public function AIggregate(string $prompt, array $examples = [], array $options = []): \Traversable;
 }

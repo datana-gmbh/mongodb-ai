@@ -11,29 +11,20 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Datana\Datapool\Api\Tests\Unit;
+namespace Datana\MongoDB\AI\Tests\Unit;
 
-use Datana\Datapool\Api\FakeAktenzeichenApi;
 use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \Datana\Datapool\Api\FakeAktenzeichenApi
- */
-final class FakeAktenzeichenApiTest extends TestCase
+final class DummyTest extends TestCase
 {
     use Helper;
 
     /**
      * @test
      */
-    public function new(): void
+    public function true(): void
     {
-        $api = new FakeAktenzeichenApi();
-
-        self::assertSame(
-            '6GU5DCB',
-            $api->new(),
-        );
+        self::assertTrue(true);
     }
 }
