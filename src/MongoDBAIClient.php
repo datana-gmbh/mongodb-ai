@@ -19,6 +19,7 @@ use OskarStark\Value\TrimmedNonEmptyString;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Webmozart\Assert\Assert;
+use function Symfony\Component\String\u;
 
 /**
  * @author Oskar Stark <oskarstark@googlemail.com>
@@ -90,7 +91,10 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
 
         $response = $this->openAI->chat()->create($parameters);
 
-        $pipeline = str_replace(PHP_EOL, '', $response->choices[0]->message->content);
+        $pipeline = u($response->choices[0]->message->content)
+            ->replace(PHP_EOL, '')
+            ->replace(' ', '')
+            ->toString();
 
         dd($pipeline);
 
