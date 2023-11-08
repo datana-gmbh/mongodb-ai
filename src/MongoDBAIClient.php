@@ -55,7 +55,9 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
             'Create a MongoDB aggregation pipeline and answer only with the pipeline itself, no explanations.',
             'It must be in a PHP array!',
             'No starting variable, just the pipeline itself.',
-            'No ending ;'
+            'No ending ;',
+            'I want to use your result directly in PHP, please also remove the ```php and ```',
+            'Remove all linebreaks',
         ];
 
         $messages = [];
