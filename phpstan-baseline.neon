@@ -26,11 +26,6 @@ parameters:
 			path: src/MongoDBAIClient.php
 
 		-
-			message: "#^Parameter \\#1 \\$pipeline of method MongoDB\\\\Collection\\:\\:aggregate\\(\\) expects array, mixed given\\.$#"
-			count: 1
-			path: src/MongoDBAIClient.php
-
-		-
 			message: "#^Method Datana\\\\MongoDB\\\\AI\\\\MongoDBAIClientInterface\\:\\:AIggregate\\(\\) has parameter \\$examples with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/MongoDBAIClientInterface.php
