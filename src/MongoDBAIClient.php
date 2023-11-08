@@ -93,8 +93,9 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
 
         $pipeline = u($response->choices[0]->message->content)
             ->replace(PHP_EOL, '')
-            ->replace(' ', '')
             ->toString();
+
+        $pipeline = json_decode($pipeline, true, 512, \JSON_THROW_ON_ERROR);
 
         dd($pipeline);
 
