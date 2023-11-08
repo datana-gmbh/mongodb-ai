@@ -62,6 +62,16 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
             $messages[] = ['role' => 'user', 'content' => $prompt];
         }
 
+        if ([] !== $examples) {
+            $messages[] = [
+                'role' => 'system',
+                'content' => 'Here are some examples of the documents in the collection:',
+            ];
+            foreach ($examples as $example) {
+                $messages[] = ['role' => 'user', 'content' => $example];
+            }
+        }
+
         $parameters = [
             'model' => 'gpt-4-1106-preview',
             'messages' => $messages,
@@ -71,7 +81,7 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
 
         $response = $this->openAI->chat()->create($parameters);
 
-        dd($response);
+        dd($response->choices()->);
 
         return $collection->aggregate($pipeline, $options);
     }
