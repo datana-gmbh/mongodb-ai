@@ -1,7 +1,7 @@
 {
-    "name": "datana-gmbh/datapool-api",
+    "name": "datana-gmbh/mongodb-ai",
     "type": "library",
-    "description": "API for Datapool",
+    "description": "Use AI in MongoDB",
     "license": "MIT",
     "authors": [
         {

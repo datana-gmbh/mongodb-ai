@@ -1,4 +1,4 @@
-# datapool-api
+# mongodb-ai
 
 | Branch    | PHP                                         | Code Coverage                                        |
 |-----------|---------------------------------------------|------------------------------------------------------|
@@ -9,7 +9,7 @@
 ### Installation
 
 ```bash
-composer require datana-gmbh/datapool-api
+composer require datana-gmbh/mongodb-ai
 ```
 
 ### Setup
@@ -351,8 +351,8 @@ $api->getFieldvalueByAktenzeichen(
 );
 ```
 
-[build-status-master-php]: https://github.com/datana-gmbh/datapool-api/workflows/PHP/badge.svg?branch=master
-[coverage-status-master]: https://codecov.io/gh/datana-gmbh/datapool-api/branch/master/graph/badge.svg
+[build-status-master-php]: https://github.com/datana-gmbh/mongodb-ai/workflows/PHP/badge.svg?branch=master
+[coverage-status-master]: https://codecov.io/gh/datana-gmbh/mongodb-ai/branch/master/graph/badge.svg
 
-[actions]: https://github.com/datana-gmbh/datapool-api/actions
-[codecov]: https://codecov.io/gh/datana-gmbh/datapool-api
+[actions]: https://github.com/datana-gmbh/mongodb-ai/actions
+[codecov]: https://codecov.io/gh/datana-gmbh/mongodb-ai

@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Ergebnis\PhpCsFixer;
 
 $header = <<<'HEADER'
-This file is part of Datapool-Api.
+This file is part of MongoDB AI.
 
 (c) Datana GmbH <info@datana.rocks>
 

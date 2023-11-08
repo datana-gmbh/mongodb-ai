@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * This file is part of Datapool-Api.
+ * This file is part of MongoDB AI.
  *
  * (c) Datana GmbH <info@datana.rocks>
  *
