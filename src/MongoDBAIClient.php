@@ -96,6 +96,6 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
 
         $pipelineArray = json_decode($pipelineJson, true, 512, \JSON_THROW_ON_ERROR);
 
-        return $collection->aggregate($pipelineArray, $options);
+        return $collection->aggregate([$pipelineArray], $options);
     }
 }
