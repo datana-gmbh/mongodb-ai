@@ -13,13 +13,7 @@ declare(strict_types=1);
 
 namespace Datana\MongoDB\AI\OpenAI;
 
-use Datana\MongoDB\AI\MongoDBAIClientInterface;
-use MongoDB\Client as MongoDB;
 use OpenAI;
-use OskarStark\Value\TrimmedNonEmptyString;
-use Psr\Log\LoggerInterface;
-use Psr\Log\NullLogger;
-use Webmozart\Assert\Assert;
 
 /**
  * @author Oskar Stark <oskarstark@googlemail.com>

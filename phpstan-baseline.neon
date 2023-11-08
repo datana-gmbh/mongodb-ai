@@ -1,47 +1,52 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Property Datana\\\\Datapool\\\\Api\\\\DatapoolClient\\:\\:\\$logger is never read, only written\\.$#"
+			message: "#^Method Datana\\\\MongoDB\\\\AI\\\\MongoDBAIClient\\:\\:AIggregate\\(\\) has parameter \\$examples with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/DatapoolClient.php
+			path: src/MongoDBAIClient.php
 
 		-
-			message: "#^Method Datana\\\\Datapool\\\\Api\\\\KnowledgeToolsApi\\:\\:getFieldvalueByAktenzeichen\\(\\) should return array\\{aktenzeichen\\: string, hash\\: string, value\\: mixed\\} but returns array\\.$#"
+			message: "#^Method Datana\\\\MongoDB\\\\AI\\\\MongoDBAIClient\\:\\:AIggregate\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/KnowledgeToolsApi.php
+			path: src/MongoDBAIClient.php
 
 		-
-			message: "#^Method Datana\\\\Datapool\\\\Api\\\\KnowledgeToolsApi\\:\\:getFieldvalueByInstanceAndOid\\(\\) should return array\\{oid\\: int, instance\\: string, hash\\: string, value\\: mixed\\} but returns array\\.$#"
+			message: "#^Method Datana\\\\MongoDB\\\\AI\\\\MongoDBAIClient\\:\\:AIggregate\\(\\) has parameter \\$prompt with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/KnowledgeToolsApi.php
+			path: src/MongoDBAIClient.php
 
 		-
-			message: "#^Method Datana\\\\Datapool\\\\Api\\\\Response\\\\AktenResponse\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method Datana\\\\MongoDB\\\\AI\\\\MongoDBAIClient\\:\\:AIggregate\\(\\) return type has no value type specified in iterable type Traversable\\.$#"
 			count: 1
-			path: src/Response/AktenResponse.php
+			path: src/MongoDBAIClient.php
 
 		-
-			message: "#^Method Datana\\\\Datapool\\\\Api\\\\Response\\\\ETerminInfoResponse\\:\\:toArray\\(\\) should return array\\{service_id\\: string\\|null, service_url\\: string\\|null\\} but returns array\\.$#"
+			message: "#^Parameter \\#1 \\$json of function json_decode expects string, string\\|null given\\.$#"
 			count: 1
-			path: src/Response/ETerminInfoResponse.php
+			path: src/MongoDBAIClient.php
 
 		-
-			message: "#^Method Datana\\\\Datapool\\\\Api\\\\Response\\\\KtAktenInfoResponse\\:\\:toArray\\(\\) should return array\\{id\\: int, url\\: string, instance\\: string, group\\: string\\} but returns array\\.$#"
+			message: "#^Parameter \\#1 \\$pipeline of method MongoDB\\\\Collection\\:\\:aggregate\\(\\) expects array, mixed given\\.$#"
 			count: 1
-			path: src/Response/KtAktenInfoResponse.php
+			path: src/MongoDBAIClient.php
 
 		-
-			message: "#^Method Datana\\\\Datapool\\\\Api\\\\Response\\\\SachstandResponse\\:\\:getParagraphs\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method Datana\\\\MongoDB\\\\AI\\\\MongoDBAIClientInterface\\:\\:AIggregate\\(\\) has parameter \\$examples with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Response/SachstandResponse.php
+			path: src/MongoDBAIClientInterface.php
 
 		-
-			message: "#^Method Datana\\\\Datapool\\\\Api\\\\Response\\\\SachstandResponse\\:\\:toArray\\(\\) should return array\\{headline\\: string, paragraphs\\: array\\<int, string\\>\\} but returns array\\.$#"
+			message: "#^Method Datana\\\\MongoDB\\\\AI\\\\MongoDBAIClientInterface\\:\\:AIggregate\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Response/SachstandResponse.php
+			path: src/MongoDBAIClientInterface.php
 
 		-
-			message: "#^Method Datana\\\\Datapool\\\\Api\\\\Response\\\\SimplyBookInfoResponse\\:\\:toArray\\(\\) should return array\\{service_id\\: string\\|null, service_url\\: string\\|null\\} but returns array\\.$#"
+			message: "#^Method Datana\\\\MongoDB\\\\AI\\\\MongoDBAIClientInterface\\:\\:AIggregate\\(\\) has parameter \\$prompt with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Response/SimplyBookInfoResponse.php
+			path: src/MongoDBAIClientInterface.php
+
+		-
+			message: "#^Method Datana\\\\MongoDB\\\\AI\\\\MongoDBAIClientInterface\\:\\:AIggregate\\(\\) return type has no value type specified in iterable type Traversable\\.$#"
+			count: 1
+			path: src/MongoDBAIClientInterface.php
 
