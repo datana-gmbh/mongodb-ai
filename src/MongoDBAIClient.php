@@ -79,6 +79,8 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
 
         $parameters = [
             'model' => 'gpt-4-1106-preview',
+            'type' => 'json_object',
+            'temperature' => 0.1,
             'messages' => $messages,
         ];
 
