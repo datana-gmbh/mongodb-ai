@@ -23,5 +23,5 @@ interface MongoDBAIClientInterface
      * @param array        $examples the examples of documents to give the model more context
      * @param array        $options  the options for the aggregation pipeline
      */
-    public function AIggregate(string $prompt, array $examples = [], array $options = []): \Traversable;
+    public function AIggregate(array|string $prompt, array $examples = [], array $options = []): \Traversable;
 }
