@@ -52,7 +52,10 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
         $collection = $database->selectCollection($this->collection);
 
         $messages = [
-            ['role' => 'system', 'content' => 'You are a helpful assistant.'],
+            [
+                'role' => 'system',
+                'content' => 'Create a MongoDB aggregation pipeline and answer only with the pipeline itself, no explanations. It must be in a PHP array!',
+            ],
         ];
 
         foreach ($prompts as $prompt) {
