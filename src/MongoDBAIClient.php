@@ -92,7 +92,9 @@ final readonly class MongoDBAIClient implements MongoDBAIClientInterface
 
         $response = $this->openAI->chat()->create($parameters);
 
-        $pipelineJson = \Safe\json_encode(json_decode($response->choices[0]->message->content, true, 512, \JSON_THROW_ON_ERROR));
+        $pipelineJson = \Safe\json_encode(json_decode($response->choices[0]->message->content, true, 512, \JSON_THROW_ON_ERROR), \JSON_PRETTY_PRINT);
+
+        $this->logger->info('OpenAI: Create chat', ['pipelineJson' => $pipelineJson]);
 
         $pipelineArray = json_decode($pipelineJson, true, 512, \JSON_THROW_ON_ERROR);
 
